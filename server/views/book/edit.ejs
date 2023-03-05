@@ -2,45 +2,58 @@
 
 <%- include ../partials/main_nav.ejs %>
 
-<!--Pradyumna Donekal
-ID: 301145218
-26/06/21 -->
+<!-- Content for the Edit page -->
+<div class="container">
+    <div class="offset-md-2 col-md-8">
+        <form class="form" method="POST">
+            <h1><%= title %></h1>
+            <br />
+            <div class="form-group mb-3">
+                <label for="nameTextField" class="form-label">Book Title</label>
+                <input type="text" class="form-control" id="nameTextField"
+                    value="<%= book.name %>"
+                    placeholder="Enter the Book Title" name="name" required>
+            </div>
 
-<!-- Content for the Add page -->
+            <div class="form-group mb-3">
+                <label for="authorTextField" class="form-label">Author</label>
+                <input type="text" class="form-control" id="authorTextField"
+                    value="<%= book.author %>"
+                    placeholder="Enter the Book Author" name="author" required>
+            </div>
 
-<!-- ADD YOU CODE TO CREATE THE EDIT PAGE -->
-<div class="h-100 d-flex justify-content-center align-items-center ">
-    <div class=" w-75 my-5 ">
-<div id="main-container">
-    <h1><%= title %></h1>
-    <form method="POST" action="/book-list/edit/<%= book._id %>">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputName">Book name</label>
-                <input name="name" type="text" class="form-control" id="inputName" value="<%= book.name %>">
+            <div class="form-group mb-3">
+                <label for="publishedTextField" class="form-label">Year</label>
+                <input type="text" class="form-control" id="publishedTextField"
+                    value="<%= book.published %>"
+                    placeholder="Enter the Year of Publication" name="published" required>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputAuthor">Author name</label>
-                <input name="author" type="text" class="form-control" id="inputAuthor" value="<%= book.author %>" >
+
+            <div class="form-group mb-3">
+                <label for="descriptionTextArea" class="form-label">Description</label>
+                <textarea type="text" class="form-control" id="descriptionTextArea"
+                    placeholder="Enter the brief description of the book" name="description" required>
+                    <%= book.description %>
+                </textarea>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputPublished">Published year</label>
-                <input name="published" type="number" class="form-control" id="inputPublished" value="<%= book.published %>">
+
+            <div class="form-group mb-3">
+                <label for="priceTextField" class="form-label">Price</label>
+                <input type="text" class="form-control" id="priceTextField"
+                    value="<%= book.price %>"
+                    placeholder="Enter the Book Price" name="price" required>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputDescription">Description</label>
-                <input name="description" type="text" class="form-control" id="inputDescription" value="<%= book.description %>">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputPrice">Price</label>
-                <input name="price" type="number" class="form-control" id="inputPrice" value="<%= book.price %>">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Apply</button>
-    </form>
+
+            <br />
+
+            <button class="btn btn-primary" type="submit"> <i class="fas fa-edit"></i> Save </button>
+            <a href="/book-list" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel </a></a>
+
+
+        </form>
+    </div>
 </div>
-</div>
-</div>
+
 
 <%- include ../partials/bottom_nav.ejs %>  
 

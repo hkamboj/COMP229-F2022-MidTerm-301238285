@@ -1,3 +1,10 @@
+/**
+ * filename: app.js
+ * student name: Marc Louis Gene De Guzman
+ * student number: 301171014
+ * Date: June 21, 2021
+ */
+
 // installed 3rd party packages
 let createError = require('http-errors');
 let express = require('express');

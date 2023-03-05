@@ -1,3 +1,10 @@
+/**
+ * filename: book.js
+ * student name: Marc Louis Gene De Guzman
+ * student number: 301171014
+ * Date: June 21, 2021
+ */
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -47,67 +54,53 @@ module.exports.processAddPage = (req, res, next) => {
     });
 
 }
-/*
-Add your code here to display EDIT
-*/
+
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
-    Book.findById(id, (err, bookToEdit) => {
+
+    Book.findById(id, (err, currentBook) => {
         if (err) {
-            return console.error(err);
-        }
-        else {
+            return console.log(err);
+        } else {
             res.render('book/edit', {
-                book: bookToEdit,
-                title: "Edit Book Information"
-            })
-
-
+                title: 'Edit Book',
+                book: currentBook,
+            });
         }
     });
 }
-/*
-Add your code here to process EDIT
-*/
+
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id;
-    let updatedBook = Book({
-        "_id": id,
-        "name": req.body.name,
-        "author": req.body.author,
-        "published": req.body.published,
-        "description": req.body.description,
-        "price": req.body.price
-    });
-    Book.updateOne({ _id: id }, updatedBook, (err) => {
-        if (err) {
-            return console.error(err);
-        }
-        else {
 
+    let updatedBook = Book({
+        _id: id,
+        name: req.body.name,
+        author: req.body.author,
+        published: req.body.published,
+        description: req.body.description,
+        price: req.body.price
+    });
+
+    Book.updateOne({_id: id}, updatedBook, (err) => {
+        if (err) {
+            return console.log(err);
+        } else {
             // refresh the book list
             res.redirect('/book-list');
-
-
         }
     });
 }
 
-/*
-Add your code here to perform DELETE operation
-*/
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
-    Book.remove({ _id: id }, (err) => {
+
+    Book.remove({_id: id}, (err) => {
         if (err) {
-            return console.error(err);
-        }
-        else {
+            return console.log(err);
+        } else {
             // refresh the book list
             res.redirect('/book-list');
-
-
         }
     });
-
 }

@@ -2,15 +2,16 @@
 
 <%- include ../partials/main_nav.ejs %>
   
-
-  <!-- Main Content -->
-  <main class="container">
+<!-- Main Content -->
+<!-- temporary fix margin-bottom to fix footer overlapping on long list -->
+<main class="container" style="margin-bottom: 50px;">
     <div class="row">
         <div class="offset-md-1 col-md-11">
             <h1><%= title %></h1>
             <a href="/book-list/add" class="btn btn-primary" role="button">
             <i class="fas fa-plus-circle"></i> Add a Book</a>
-            <br>
+            <br />
+            <br />
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header Row-->
                 <tr class="d-flex">
@@ -45,8 +46,9 @@
             </table>
         </div>
     </div>
-  </main>
-  
+</main>
+
+
 <%- include ../partials/bottom_nav.ejs %>  
 
 <%- include ../partials/footer.ejs %>
