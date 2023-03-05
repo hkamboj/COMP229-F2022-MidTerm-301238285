@@ -1,10 +1,10 @@
 /**
  * filename: db.js
- * student name: Marc Louis Gene De Guzman
- * student number: 301171014
- * Date: June 21, 2021
+ * student name: Hardik Kamboj
+ * student number: 301238285
+ * Date: March 4 2023
  */
 
 module.exports = {
-    URI: "mongodb+srv://mdeguzman:OOeEc0BAtTErbvzT@cluster0.pfbad.mongodb.net/comp229_midterm_db?retryWrites=true&w=majority"
+    URI: "mongodb+srv://ektavkamboj:Ektav2315@cluster0.8mfdrhz.mongodb.net/test"
 }
